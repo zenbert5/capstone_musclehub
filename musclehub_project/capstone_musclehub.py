@@ -65,8 +65,8 @@ app_counts = df.groupby(['ab_test_group', 'is_application']).email.count().reset
 
 # create pivot table for visual aid
 app_pivot = app_counts.pivot(
-	columns = 'is_application',
-	index = 'ab_test_group',
+    columns = 'is_application',
+    index = 'ab_test_group',
     values = 'email'
     ).reset_index()
 
@@ -138,8 +138,8 @@ print fm_pval
 # 3 - percentage of visitors who purchased a membership
 
 # 1:3
-plot_data = [(app_pivot['Percent'][0]*100), (app_pivot['Percent'][1]*100)]
-bar_input = [0, 1]
+plot_data = app_pivot['Percent'].values
+bar_input = range(len(app_pivot)
 
 ax = plt.subplot()
 bar = plt.bar(bar_input, plot_data, color='b')
