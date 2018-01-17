@@ -147,7 +147,7 @@ bar[0].set_color('r')
 
 ax.set_xticks([0, 1])
 ax.set_xticklabels(['Fitness Test', 'No Fitness Test'])
-ax.set_yticks([0, 5, 10, 15, 20])
+ax.set_yticks([0, 0.05, 0.10, 0.15, 0.20])
 ax.set_yticklabels(['0%', '5%', '10%', '15%', '20%'])
 for i, v in enumerate(plot_data):
     ax.text(i, v+1, str(round(v, 2)), horizontalalignment='center', fontsize=12, fontweight='bold')
@@ -159,8 +159,8 @@ plt.savefig('applicants_by_group.png')
 plt.show()
 
 # 2:3
-plot_data = [(member_pivot['Percent Purchase'][0]*100), (member_pivot['Percent Purchase'][1]*100)]
-bar_input = [0, 1]
+plot_data = member_pivot['Percent'].values
+bar_input = range(len(member_pivot)
 
 ax = plt.subplot()
 bar = plt.bar(bar_input, plot_data, color='b')
@@ -168,7 +168,7 @@ bar[0].set_color('r')
 
 ax.set_xticks([0, 1])
 ax.set_xticklabels(['Fitness Test', 'No Fitness Test'])
-ax.set_yticks([0, 25, 50, 75, 100])
+ax.set_yticks([0, 0.25, 0.50, 0.75, 1.00])
 ax.set_yticklabels(['0%', '25%', '50%', '75%', '100%'])
 for i, v in enumerate(plot_data):
     ax.text(i, v+1, str(round(v, 2)), horizontalalignment='center', fontsize=12, fontweight='bold')
@@ -181,8 +181,8 @@ plt.show()
 
 
 # 3:3
-plot_data = [(final_member_pivot['Percent Purchase'][0]*100), (final_member_pivot['Percent Purchase'][1]*100)]
-bar_input = [0, 1]
+plot_data = final_member_pivot['Percent'].values
+bar_input = range(len(final_member_pivot)
 
 ax = plt.subplot()
 bar = plt.bar(bar_input, plot_data, color='b')
@@ -190,7 +190,7 @@ bar[0].set_color('r')
 
 ax.set_xticks([0, 1])
 ax.set_xticklabels(['Fitness Test', 'No Fitness Test'])
-ax.set_yticks([0, 2.5, 5, 7.5, 10, 12.5, 15, 17.5])
+ax.set_yticks([0, 0.025, 0.05, 0.075, 0.10, 0.125, 0.15, 0.175])
 ax.set_yticklabels(['0%', '2.5%', '5%', '7.5%', '10%', '12.5%', '15%', '17.5%'])
 for i, v in enumerate(plot_data):
     ax.text(i, v+1, str(round(v, 2)), horizontalalignment='center', fontsize=12, fontweight='bold')
