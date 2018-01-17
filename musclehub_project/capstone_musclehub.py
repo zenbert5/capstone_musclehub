@@ -87,7 +87,7 @@ print app_pval
 # create data field to identify visitors that became (paid) members
 df['is_member'] = df.purchase_date.apply(lambda x: 'Member' if pd.notnull(x) else 'Not Member')
 
-just_apps = df[(pd.notnull(df.application_date))].reset_index()
+just_apps = df[df.is_application == 'Application']
 
 # create pivot table to show the distribution of A/B groups that applied and became members
 member_count = just_apps.groupby(['ab_test_group', 'is_member']).email.count().reset_index()
