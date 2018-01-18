@@ -20,22 +20,22 @@ from scipy.stats import chi2_contingency
 
 # Create multiple join query of tables into one and assign to dataframe df
 df = sql_query('''
-SELECT visits.first_name, visits.last_name, visits.gender, visits.email, visits.visit_date, fitness_tests.fitness_test_date, applications.application_date, purchases.purchase_date
-FROM visits
-LEFT JOIN fitness_tests 
-ON (visits.first_name = fitness_tests.first_name 
-    AND visits.last_name = fitness_tests.last_name 
-    AND visits.email = fitness_tests.email
+SELECT v.first_name, v.last_name, v.gender, v.email, v.visit_date, ft.fitness_test_date, ap.application_date, ps.purchase_date
+FROM visits AS v
+LEFT JOIN fitness_tests AS ft
+ON (v.first_name = ft.first_name 
+    AND v.last_name = ft.last_name 
+    AND v.email = ft.email
     )
-LEFT JOIN applications
-ON (visits.first_name = applications.first_name
-    AND visits.last_name = applications.last_name
-    AND visits.email = applications.email
+LEFT JOIN applications AS ap
+ON (v.first_name = ap.first_name
+    AND v.last_name = ap.last_name
+    AND v.email = ap.email
     )
-LEFT JOIN purchases
-ON (visits.first_name = purchases.first_name
-    AND visits.last_name = purchases.last_name
-    AND visits.email = purchases.email
+LEFT JOIN purchases AS ps
+ON (v.first_name = ps.first_name
+    AND v.last_name = ps.last_name
+    AND v.email = ps.email
     )
 WHERE visits.visit_date >= '7-1-17'
 ''')
