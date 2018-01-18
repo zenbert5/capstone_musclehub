@@ -37,7 +37,7 @@ ON (v.first_name = ps.first_name
     AND v.last_name = ps.last_name
     AND v.email = ps.email
     )
-WHERE visits.visit_date >= '7-1-17'
+WHERE v.visit_date >= '7-1-17'
 ''')
 
 # print dataframe and stats
